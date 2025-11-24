@@ -80,7 +80,14 @@
             <div class="bg-white border-b border-gray-200 py-12">
                 <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div><div class="text-4xl font-bold text-unidirBlue mb-1">18+</div><div class="text-xs text-gray-500 font-bold uppercase tracking-widest">States Engaged</div></div>
-                    <div class="md:border-l md:border-r border-gray-100"><div class="text-4xl font-bold text-unidirBlue mb-1">CMM/SAT</div><div class="text-xs text-gray-500 font-bold uppercase tracking-widest">Methodology</div></div>
+                    
+                    <a href="https://unidir.org/publication/counter-ied-capability-maturity-model-and-self-assessment-tool/" target="_blank" class="group block md:border-l md:border-r border-gray-100 hover:bg-gray-50 transition cursor-pointer p-2 rounded">
+                        <div class="text-4xl font-bold text-unidirBlue mb-1 group-hover:underline">CMM/SAT</div>
+                        <div class="text-xs text-gray-500 font-bold uppercase tracking-widest flex items-center justify-center gap-1">
+                            Methodology <i class="ph-bold ph-arrow-square-out"></i>
+                        </div>
+                    </a>
+
                     <div><div class="text-4xl font-bold text-unidirBlue mb-1">Global</div><div class="text-xs text-gray-500 font-bold uppercase tracking-widest">Coverage</div></div>
                 </div>
             </div>
@@ -98,25 +105,44 @@
                             <label class="text-xs font-bold text-gray-400 uppercase mb-2 block">Keywords</label>
                             <input type="text" id="filter-search" onkeyup="renderGrid()" class="w-full bg-gray-50 border border-gray-200 rounded p-3 text-sm focus:border-unidirBlue focus:ring-1 focus:ring-unidirBlue outline-none transition" placeholder="Search title, country...">
                         </div>
+                        
                         <div>
                             <label class="text-xs font-bold text-gray-400 uppercase mb-2 block">Category</label>
-                            <div class="flex gap-4">
-                                <label class="flex items-center gap-2 cursor-pointer hover:text-unidirBlue select-none"><input type="checkbox" id="chk-up" onchange="renderGrid()" class="accent-unidirBlue w-4 h-4" checked> <span class="text-sm font-medium">Upstream</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer hover:text-unidirBlue select-none"><input type="checkbox" id="chk-down" onchange="renderGrid()" class="accent-unidirBlue w-4 h-4" checked> <span class="text-sm font-medium">Downstream</span></label>
+                            <div class="flex flex-col gap-2">
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-unidirBlue select-none">
+                                    <input type="checkbox" id="chk-up" onchange="renderGrid()" class="accent-unidirBlue w-4 h-4" checked> <span class="text-sm font-medium">Upstream</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-orange-500 select-none">
+                                    <input type="checkbox" id="chk-down" onchange="renderGrid()" class="accent-orange-500 w-4 h-4" checked> <span class="text-sm font-medium">Downstream</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer hover:text-purple-600 select-none">
+                                    <input type="checkbox" id="chk-cross" onchange="renderGrid()" class="accent-purple-600 w-4 h-4" checked> <span class="text-sm font-medium">Cross-cutting</span>
+                                </label>
                             </div>
                         </div>
+
                         <div>
                             <label class="text-xs font-bold text-gray-400 uppercase mb-2 block">Component</label>
                             <select id="sel-component" onchange="renderGrid()" class="w-full bg-gray-50 border border-gray-200 rounded text-sm border p-3 outline-none cursor-pointer hover:bg-white transition">
                                 <option value="all">All Components</option>
-                                <option value="Counter-IED Strategy">Counter-IED Strategy</option>
-                                <option value="Legislation">Legislation & Regulation</option>
-                                <option value="Information Management">Information Management</option>
-                                <option value="Precursors">Precursor Control</option>
-                                <option value="Border Control">Border Control</option>
-                                <option value="EOD">EOD / IEDD</option>
-                                <option value="Forensics">Forensics / Investigation</option>
-                                <option value="Education">Risk Education</option>
+                                <option value="Assessment of capabilities and threats">Assessment of capabilities and threats</option>
+                                <option value="Advocacy, policy, legislation and regulations">Advocacy, policy, legislation and regulations</option>
+                                <option value="Security and control of explosives">Security and control of explosives</option>
+                                <option value="Education on improvised explosive device risk">Education on IED risk</option>
+                                <option value="Development of capabilities to counter improvised explosive devices">Development of capabilities to counter IEDs</option>
+                                <option value="Border controls">Border controls</option>
+                                <option value="Control of precursors">Control of precursors</option>
+                                <option value="Regional and international cooperation and information-sharing">Regional and international cooperation</option>
+                                <option value="Intelligence-led operations">Intelligence-led operations</option>
+                                <option value="IED response: render safe">IED response: render safe</option>
+                                <option value="IED response: scene exploitation">IED response: scene exploitation</option>
+                                <option value="Recovered evidence analysis">Recovered evidence analysis</option>
+                                <option value="Information management">Information management</option>
+                                <option value="Technical exploitation of recovered devices">Technical exploitation of recovered devices</option>
+                                <option value="Identification of perpetrators">Identification of perpetrators</option>
+                                <option value="Victim assistance">Victim assistance</option>
+                                <option value="Judicial process">Judicial process</option>
+                                <option value="Development of countermeasures">Development of countermeasures</option>
                             </select>
                         </div>
                         <div>
@@ -153,7 +179,7 @@
                 <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 <div id="empty-state" class="hidden bg-gray-50 rounded border border-gray-200 p-12 text-center">
                     <i class="ph-duotone ph-magnifying-glass text-4xl text-gray-300 mb-3"></i>
-                    <p class="text-gray-500 font-medium">No measures found. Check filters or Google Sheet.</p>
+                    <p class="text-gray-500 font-medium">No measures found matching your filters.</p>
                     <button onclick="resetFilters()" class="mt-4 text-unidirBlue text-sm font-bold hover:underline">Clear all filters</button>
                 </div>
             </div>
@@ -179,22 +205,58 @@
                     </a>
                     <a href="mailto:cap-unidir@un.org" class="border border-gray-300 rounded p-4 flex items-center gap-3 hover:bg-gray-50 hover:border-green-500 transition text-left group">
                         <i class="ph-fill ph-paper-plane-right text-2xl text-gray-400 group-hover:text-green-600"></i>
-                        <div><span class="block font-bold text-sm text-gray-700">Send via Email</span><span class="text-xs text-gray-500">comms-unidir@un.org</span></div>
+                        <div><span class="block font-bold text-sm text-gray-700">Send via Email</span><span class="text-xs text-gray-500">cap-unidir@un.org</span></div>
                     </a>
                 </div>
             </div>
         </section>
+
+        <section id="sect-privacy" class="hide-section fade-in container mx-auto px-4 py-16 max-w-4xl">
+            <h2 class="text-3xl font-bold text-unidirDark mb-6">Privacy Policy</h2>
+            <div class="prose max-w-none text-gray-600">
+                <p class="mb-4">This Compendium collects data voluntarily submitted by Member States. UNIDIR respects the privacy of all contributors and users.</p>
+                <p class="mb-4"><strong>Data Collection:</strong> We do not collect personal data from users browsing this platform. Contact information submitted via the contribution process is used solely for verification purposes.</p>
+                <p>For more details, please refer to the main <a href="https://unidir.org" target="_blank" class="text-unidirBlue underline">UNIDIR website</a> privacy policy.</p>
+            </div>
+        </section>
+
+        <section id="sect-terms" class="hide-section fade-in container mx-auto px-4 py-16 max-w-4xl">
+            <h2 class="text-3xl font-bold text-unidirDark mb-6">Terms of Use</h2>
+            <div class="prose max-w-none text-gray-600">
+                <p class="mb-4"><strong>Disclaimer:</strong> The content of this Compendium is for information purposes only. The views expressed do not necessarily reflect the views of UNIDIR or the United Nations.</p>
+                <p class="mb-4"><strong>Usage:</strong> The practices listed herein are provided "as is". Member States are encouraged to adapt them to their specific national contexts.</p>
+            </div>
+        </section>
+
+        <section id="sect-methodology" class="hide-section fade-in container mx-auto px-4 py-16 max-w-4xl">
+            <h2 class="text-3xl font-bold text-unidirDark mb-6">Compendium Methodology</h2>
+            <div class="prose max-w-none text-gray-600 space-y-4">
+                <p>This Compendium is built upon the UNIDIR Counter-IED Capability Maturity Model and Self-Assessment Tool (CMM/SAT).</p>
+                <h3 class="text-xl font-bold text-unidirDark">Data Collection</h3>
+                <p>Data is collected through voluntary submissions from Member States, regional consultations, and validated open-source reports.</p>
+                <h3 class="text-xl font-bold text-unidirDark">Validation Process</h3>
+                <p>All submitted measures undergo a technical review by UNIDIR experts to ensure they align with the CMM/SAT framework and represent effective practices before being published.</p>
+                <h3 class="text-xl font-bold text-unidirDark">Categorization</h3>
+                <ul class="list-disc pl-5">
+                    <li><strong>Upstream:</strong> Measures focusing on prevention, regulation, and intelligence.</li>
+                    <li><strong>Downstream:</strong> Measures focusing on response, investigation, and disposal.</li>
+                    <li><strong>Cross-cutting:</strong> Measures that apply across the spectrum (e.g., Information Management, Cooperation).</li>
+                </ul>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-unidirDark text-white py-8 mt-auto">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 opacity-70 hover:opacity-100 transition">
             <div class="flex items-center gap-3">
-                <img src="https://lh3.googleusercontent.com/d/1KIBldv_N2mcMa6OZAwPnwogOZ75rSD-V" class="h-8 grayscale bg-white p-0.5 rounded">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/UNIDIR-dual-emblem-name-only-logo-blue-black.png" class="h-8 brightness-0 invert p-0.5">
                 <span class="text-xs">&copy; 2025 UNIDIR. All rights reserved.</span>
             </div>
             <div class="text-xs font-bold flex gap-4">
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Terms of Use</a>
+                <button onclick="showSection('privacy')" class="hover:text-white hover:underline">Privacy Policy</button>
+                <button onclick="showSection('terms')" class="hover:text-white hover:underline">Terms of Use</button>
+                <button onclick="showSection('methodology')" class="hover:text-white hover:underline">Methodology</button>
             </div>
         </div>
     </footer>
@@ -245,7 +307,7 @@
 
     <script>
         // ==========================================
-        // CONFIGURATION: VOTRE LIEN SPECIFIQUE ICI
+        // CONFIGURATION
         // ==========================================
         const SPECIFIC_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZxkDfAI9kkFd1zJ5qzf5CsvnFPqwlr3Wkxvb3RxadTf_TtpddP9A6X4ip_STdUVxsmza75xCkYeqo/pub?gid=0&single=true&output=csv";
 
@@ -262,27 +324,38 @@
                 header: true,
                 skipEmptyLines: true,
                 complete: function(results) {
-                    console.log("Data loaded:", results.data.length, "rows");
-                    // Ajout d'un ID pour l'ouverture des détails
+                    // ID for details modal
                     database = results.data.map((item, i) => ({ ...item, id: i }));
                     loader.classList.add('hidden');
                     renderGrid();
                 },
                 error: function(err) {
                     console.error("Error loading CSV:", err);
-                    alert("Erreur de chargement. Verifiez que le lien Google Sheet est bien 'Publié'.");
+                    alert("Error loading database. Check Google Sheet published status.");
                     loader.classList.add('hidden');
                 }
             });
         }
 
         function showSection(sectName) {
-            ['home', 'db', 'contribute'].forEach(s => {
-                document.getElementById('sect-' + s).classList.add('hide-section');
-                document.getElementById('nav-' + s).classList.remove('nav-active');
+            // Hide all sections
+            const sections = ['home', 'db', 'contribute', 'privacy', 'terms', 'methodology'];
+            sections.forEach(s => {
+                const el = document.getElementById('sect-' + s);
+                if(el) el.classList.add('hide-section');
+                
+                // Nav active state (only for top nav items)
+                const nav = document.getElementById('nav-' + s);
+                if(nav) nav.classList.remove('nav-active');
             });
+
+            // Show target
             document.getElementById('sect-' + sectName).classList.remove('hide-section');
-            document.getElementById('nav-' + sectName).classList.add('nav-active');
+            
+            // Set active nav if exists
+            const activeNav = document.getElementById('nav-' + sectName);
+            if(activeNav) activeNav.classList.add('nav-active');
+            
             window.scrollTo(0,0);
         }
 
@@ -293,15 +366,19 @@
         }
 
         // ==========================================
-        // RENDU & FILTRES (ROBUSTE)
+        // RENDER & FILTERS
         // ==========================================
         function renderGrid() {
             const grid = document.getElementById('grid-container');
             grid.innerHTML = "";
 
             const search = document.getElementById('filter-search').value.toLowerCase();
+            
+            // Category Checks
             const showUp = document.getElementById('chk-up').checked;
             const showDown = document.getElementById('chk-down').checked;
+            const showCross = document.getElementById('chk-cross').checked;
+            
             const fComp = document.getElementById('sel-component').value;
             const fMat = document.getElementById('sel-maturity').value;
             const fCtx = document.getElementById('sel-context').value;
@@ -309,20 +386,25 @@
             let count = 0;
 
             database.forEach(item => {
-                // SECURITE: Si 'Validated' n'existe pas dans le CSV, on affiche quand même (pour tester)
-                // Si 'Validated' existe, on vérifie que c'est TRUE/True/true/Yes/yes
                 let isValid = true;
                 if(item.Validated) {
                     const val = item.Validated.trim().toUpperCase();
                     if(val !== "TRUE" && val !== "YES" && val !== "VRAI") isValid = false;
                 }
                 
-                // Si la ligne est vide ou invalide
                 if(!item.Title || !isValid) return;
 
                 const txt = (item.Title + " " + item.Country + " " + item.Description).toLowerCase();
                 const matchSearch = txt.includes(search);
-                const matchCat = (item.Category === 'Upstream' && showUp) || (item.Category === 'Downstream' && showDown);
+                
+                // Match Category (Loose matching for Cross-cutting)
+                const cat = (item.Category || "").trim();
+                let matchCat = false;
+                
+                if (cat === 'Upstream' && showUp) matchCat = true;
+                else if (cat === 'Downstream' && showDown) matchCat = true;
+                else if (cat.toLowerCase().includes('cross') && showCross) matchCat = true;
+
                 const matchComp = (fComp === 'all') || (item.Component === fComp);
                 const matchMat = (fMat === 'all') || (item.Maturity === fMat);
                 const matchCtx = (fCtx === 'all') || (item.Context && item.Context.includes(fCtx));
@@ -339,9 +421,22 @@
         }
 
         function createCard(item, container) {
-            const isUp = item.Category === 'Upstream';
-            const colorLine = isUp ? 'bg-blue-500' : 'bg-orange-500';
-            const badgeClass = isUp ? 'bg-blue-50 text-blue-700 border-blue-100' : 'bg-orange-50 text-orange-700 border-orange-100';
+            // Determine Color Scheme based on Category
+            const cat = (item.Category || "").trim();
+            let colorLine = 'bg-gray-500';
+            let badgeClass = 'bg-gray-100 text-gray-700 border-gray-100';
+
+            if(cat === 'Upstream') {
+                colorLine = 'bg-unidirBlue';
+                badgeClass = 'bg-blue-50 text-blue-700 border-blue-100';
+            } else if (cat === 'Downstream') {
+                colorLine = 'bg-orange-500';
+                badgeClass = 'bg-orange-50 text-orange-700 border-orange-100';
+            } else if (cat.toLowerCase().includes('cross')) {
+                colorLine = 'bg-purple-600';
+                badgeClass = 'bg-purple-50 text-purple-700 border-purple-100';
+            }
+
             const location = item.Country || item.Region || "Global";
 
             const card = document.createElement('div');
@@ -363,7 +458,7 @@
                 <p class="text-sm text-gray-600 mb-6 pl-2 flex-grow leading-relaxed line-clamp-3">${item.Description || ''}</p>
                 <div class="border-t border-gray-100 pt-4 mt-auto pl-2 flex justify-between items-center">
                     <span class="text-xs font-semibold text-gray-400 flex items-center gap-1">
-                        <i class="ph-fill ph-squares-four"></i> ${item.Component || ''}
+                        <i class="ph-fill ph-squares-four"></i> ${item.Component ? item.Component.substring(0, 25) + (item.Component.length>25 ? '...' : '') : ''}
                     </span>
                     <i class="ph-bold ph-arrow-right text-unidirBlue opacity-0 group-hover:opacity-100 transition transform group-hover:translate-x-1"></i>
                 </div>
@@ -389,9 +484,24 @@
             const formattedDesc = desc.replace(/\n\n/g, '</p><p class="mt-3">').replace(/\n/g, '<br>');
             document.getElementById('m-desc').innerHTML = `<p>${formattedDesc}</p>`;
 
-            const isUp = item.Category === 'Upstream';
-            document.getElementById('modal-bar').className = isUp ? "h-3 w-full bg-blue-500" : "h-3 w-full bg-orange-500";
-            document.getElementById('m-cat').className = isUp ? "text-[10px] font-bold px-2 py-1 rounded uppercase bg-blue-100 text-blue-700" : "text-[10px] font-bold px-2 py-1 rounded uppercase bg-orange-100 text-orange-700";
+            // Colors
+            const cat = (item.Category || "").trim();
+            const bar = document.getElementById('modal-bar');
+            const catBadge = document.getElementById('m-cat');
+            
+            if(cat === 'Upstream') {
+                bar.className = "h-3 w-full bg-blue-500";
+                catBadge.className = "text-[10px] font-bold px-2 py-1 rounded uppercase bg-blue-100 text-blue-700";
+            } else if (cat === 'Downstream') {
+                bar.className = "h-3 w-full bg-orange-500";
+                catBadge.className = "text-[10px] font-bold px-2 py-1 rounded uppercase bg-orange-100 text-orange-700";
+            } else if (cat.toLowerCase().includes('cross')) {
+                bar.className = "h-3 w-full bg-purple-600";
+                catBadge.className = "text-[10px] font-bold px-2 py-1 rounded uppercase bg-purple-100 text-purple-700";
+            } else {
+                bar.className = "h-3 w-full bg-gray-500";
+                catBadge.className = "text-[10px] font-bold px-2 py-1 rounded uppercase bg-gray-100 text-gray-700";
+            }
 
             toggleModal('modal-detail');
         }
@@ -400,6 +510,7 @@
             document.getElementById('filter-search').value = "";
             document.getElementById('chk-up').checked = true;
             document.getElementById('chk-down').checked = true;
+            document.getElementById('chk-cross').checked = true;
             document.getElementById('sel-component').value = "all";
             document.getElementById('sel-maturity').value = "all";
             document.getElementById('sel-context').value = "all";
